@@ -126,11 +126,21 @@ a:hover {
 
 .pub-links .badge {
     display: inline-block;
-    padding: 2px 8px;
-    font-size: 0.8rem;
-    border: 1px solid #333;
-    margin-right: 5px;
-    font-family: monospace;
+    padding: 3px 10px;
+    font-size: 0.85rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* 加一点圆角 */
+    margin-right: 8px;
+    text-decoration: none; /* 去掉下划线 */
+    background-color: #f9f9f9;
+    transition: all 0.2s ease;
+}
+
+.pub-links .badge:hover {
+    background-color: #e0e0e0; /* 鼠标悬浮时变灰 */
+    color: #0056b3;
+    border-color: #0056b3;
 }
 
 /* 响应式设计：在手机屏幕上堆叠显示 */
