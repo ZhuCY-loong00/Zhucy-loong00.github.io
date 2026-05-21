@@ -1,0 +1,87 @@
+1. 添加 LinkedIn, Instagram, X (Twitter) 等社交链接
+在 index.html 中找到左侧栏 <div class="social-links"> 这一段。我们在之前的模版中已经引入了 FontAwesome 图标库，所以你只需要直接使用对应的图标代码。
+
+将原来的 social-links 部分替换为或补充以下代码：
+
+<div class="social-links">
+    <a href="你的谷歌学术链接" target="_blank" title="Google Scholar">
+        <i class="fa-brands fa-google"></i>
+    </a>
+    <a href="https://github.com/你的用户名" target="_blank" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+    </a>
+    <a href="你的领英主页链接" target="_blank" title="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="你的X主页链接" target="_blank" title="X">
+        <i class="fa-brands fa-x-twitter"></i>
+    </a>
+    <a href="你的Ins主页链接" target="_blank" title="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+</div>
+注：target="_blank" 这个属性非常重要，它的作用是让访客点击链接时在新标签页打开，这样他们就不会离开你的个人主页。
+
+2. 人名、校名、实验室名称标蓝并增加跳转链接
+在 HTML 中，使用 <a> 标签包裹文字就可以实现超链接。在你的 style.css 中，我已经将所有的 <a> 标签默认设置为了学术蓝色（#0056b3）。
+
+例如，在 About Me 部分，你想为学校和 Prof. Jie 加上链接，只需要这样改：
+
+<p>I am a Ph.D. student at <a href="学校官网链接" target="_blank">XX University</a> (scheduled to graduate in 20XX), supervised by <a href="导师主页链接" target="_blank">Prof. Jie</a>. My research focuses on...</p>
+只要是被 <a href="..."> 和 </a> 包裹住的文字，就会自动变成蓝色且可以点击。
+
+3. 在 News 中添加带链接的文本
+同样是使用 <a> 标签。你可以把 URL 隐藏在文字背后，让界面更清爽。
+
+在 <ul class="news-list"> 中添加这样一行：
+
+<li>
+    <strong>[May. 2026]</strong> Submitted a paper about intelligent wireless environment characterization to arXiv. 
+    <a href="https://arxiv.org/abs/你的论文编号" target="_blank">[arXiv Link]</a> / 
+    <a href="https://github.com/你的用户名/仓库名" target="_blank">[GitHub Link]</a>
+</li>
+网页上显示的效果就会是 [arXiv Link] 和 [GitHub Link] 作为蓝色的可点击文字跟在你的新闻后面。
+
+4. 在 Publications 中添加新内容（带图标跳转）
+为了满足你“带图标、可跳转”的需求，我们将原来的纯文本 Badge 升级为带有 FontAwesome 图标的超链接。
+
+在 index.html 的 Publications 区域（<section class="section"> 下），每次你想新增一篇文章，就把下面这段 <div class="publication"> 块复制粘贴进去，放在最上面：
+
+<div class="publication">
+    <p class="pub-title"><a href="论文的主页链接" target="_blank">Title of Your New Paper</a></p>
+    
+    <p class="pub-authors"><strong>Chenyu</strong>, Author 2, Author 3, Prof. Jie</p>
+    
+    <p class="pub-venue"><em>Name of the Journal/Conference</em>, 2026.</p>
+    
+    <div class="pub-links">
+        <a href="你的PDF直链或网盘链接" target="_blank" class="badge">
+            <i class="fa-solid fa-file-pdf"></i> PDF
+        </a>
+        <a href="https://github.com/你的用户名/对应代码仓库" target="_blank" class="badge">
+            <i class="fa-brands fa-github"></i> Code
+        </a>
+    </div>
+</div>
+一点样式优化建议：
+因为你要求在 Publications 区域使用带有图标的可点击按钮，你可以在 GitHub 网页端顺手编辑一下 style.css 文件。找到 .pub-links .badge 那一段，把它替换成下面这段代码，这样按钮看起来会更像正规的学术主页样式：
+
+
+.pub-links .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 0.85rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px; /* 加一点圆角 */
+    margin-right: 8px;
+    text-decoration: none; /* 去掉下划线 */
+    background-color: #f9f9f9;
+    transition: all 0.2s ease;
+}
+
+.pub-links .badge:hover {
+    background-color: #e0e0e0; /* 鼠标悬浮时变灰 */
+    color: #0056b3;
+    border-color: #0056b3;
+}
